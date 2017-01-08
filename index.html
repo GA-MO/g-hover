@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>G Hover</title>
+	<meta name="description" content="Tools for making hover effect using modern CSS 3D translate with mouse move.">
+	<link rel="stylesheet" type="text/css" href="styles/demo-layout.css">
+</head>
+<body>
+	<section class="section2">
+		<div class="title big">GHover</div>
+		<p>Tools for making hover effect using modern CSS 3D translate with mouse move.</p>
+		<p><b>A Project By GAMO</b></p>
+		<a href="https://github.com/GA-MO/g-hover/archive/master.zip" class="button">Download</a>
+		<a href="https://github.com/GA-MO/g-hover" class="button">Github</a>
+		<br>
+		<br>
+		<br>
+		<div class="container">
+			<div class="box-hover">
+			  <div class="box">
+			    <img src="images/demo.jpeg" alt="" />
+			    <div class="border"></div>
+			    <div class="box-title">
+			      <div class="title">hipster</div>
+			      <div class="sub-title">Couple married hipster love people</div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="title">Properties</div>
+		<p>Setup DOM and movement 3D transform effect with these properties.</p>
+		<br>
+
+		<!-- 	CODE -->
+		<div class="container">
+		<pre>
+		    selector: '', // Your class or id selector for wrapper.
+		    children: [
+		      {
+		        className: '',                   // Class name for transform
+		        rotate: { x: 0, y: 0, z: 0 },    // Rotate
+		        translate: { x: 0, y: 0, z: 0 }, // Translate
+		        transition: 'all 0.2s ease',     // Transition
+		      }
+		    ]
+			  </pre>
+		</div>
+		<!-- 	CODE -->
+		<br>
+		<br>
+		<div class="title">Example</div>
+		<p>Call function <span class="text-label">GHover()</span> after setup properties.</div></p>
+		<br>
+		<br>
+		<!-- 	CODE -->
+		<div class="container">
+		<pre>
+			  var setup = {
+			    selector: '.box-hover',
+			    children: [
+			      {
+			        className: '.box',
+			        rotate: { x: -5, y: -5, z: 0 },
+			        transition: 'all 0.2s ease',
+			      },
+			      {
+			        className: '.border',
+			        translate: { x: 20, y: 20, z: 0 },
+			        transition: 'all 0.2s ease',
+			      },
+			      {
+			        className: '.title, .sub-title',
+			        rotate: { x: -10, y: -10, z: 3 },
+			        translate: { x: 30, y: 30, z: 0 },
+			        transition: 'all 0.2s ease',
+			      }
+			    ]
+			  };
+
+			  
+			  GHover(setup); // Call function
+			  </pre>
+		</div>
+		<!-- 	CODE -->
+		
+	</section>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="scripts/ghover.js"></script>
+	<script>
+		$(document).ready(function(){
+			// Setup
+			const dataHover = [
+			  {
+			    selector: '.box-hover',
+			    children: [
+			      {
+			        className: '.box',
+			        rotate: { x: -5, y: -5, z: 0 },
+			        transition: 'all 0.2s ease',
+			      },
+			      {
+			        className: '.border',
+			        translate: { x: 20, y: 20, z: 0 },
+			        transition: 'all 0.2s ease',
+			      },
+			      {
+			        className: '.title, .sub-title',
+			        rotate: { x: -10, y: -10, z: 3 },
+			        translate: { x: 30, y: 30, z: 0 },
+			        transition: 'all 0.2s ease',
+			      }
+			    ]
+			  },
+			  // More selector
+			];
+
+			// Use
+			for (let i=0; i<dataHover.length; i++) {
+			  GHover(dataHover[i])
+			}
+		})
+
+		// Code highlight
+		$('pre').each(function(){
+			var currentHTML = $(this).html().replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+			$(this).html(currentHTML)
+		})
+	</script>
+</body>
+</html>
