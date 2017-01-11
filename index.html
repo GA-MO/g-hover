@@ -32,6 +32,19 @@
 		<br>
 		<br>
 		<br>
+		<div class="title">Installation</div>
+		<p>JavaScript plugin require <span class="text-label">jQuery</span> to be included.</p>
+		<br>
+		<!-- 	CODE -->
+		<div class="container">
+		<pre>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		    <script src="scripts/ghover.js"></script>
+			  </pre>
+		</div>
+		<!-- 	CODE -->
+		<br>
+		<br>
 		<div class="title">Properties</div>
 		<p>Setup DOM and movement 3D transform effect with these properties.</p>
 		<br>
@@ -45,7 +58,7 @@
 		        className: '',                   // Class name for transform
 		        rotate: { x: 0, y: 0, z: 0 },    // Rotate
 		        translate: { x: 0, y: 0, z: 0 }, // Translate
-		        transition: 'all 0.2s ease',     // Transition
+		        transition: 'all 0.2s ease',     // Transition default is 'all 0.2s ease'
 		      }
 		    ]
 			  </pre>
@@ -59,35 +72,66 @@
 		<br>
 		<!-- 	CODE -->
 		<div class="container">
-		<pre>
-			  var setup = {
-			    selector: '.box-hover',
-			    children: [
-			      {
-			        className: '.box',
-			        rotate: { x: -5, y: -5, z: 0 },
-			        transition: 'all 0.2s ease',
-			      },
-			      {
-			        className: '.border',
-			        translate: { x: 20, y: 20, z: 0 },
-			        transition: 'all 0.2s ease',
-			      },
-			      {
-			        className: '.title, .sub-title',
-			        rotate: { x: -10, y: -10, z: 3 },
-			        translate: { x: 30, y: 30, z: 0 },
-			        transition: 'all 0.2s ease',
-			      }
-			    ]
-			  };
+		<div class="row">
+			<div class="D-6">
+				<pre>
+	// Sigle
 
+	var setup = {
+	  selector: '.box-hover',
+	  children: [
+	    {
+	      className: '.box',
+	      rotate: { x: -5, y: -5, z: 0 },
+	    },
+	    {
+	      className: '.border',
+	      translate: { x: 20, y: 20, z: 0 },
+	      transition: 'all 0.5s ease-in-out',
+	    },
+	    {
+	      className: '.title, .sub-title',
+	      rotate: { x: -10, y: -10, z: 3 },
+	      translate: { x: 30, y: 30, z: 0 },
+	      transition: 'all 0.6s ease',
+	    }
+	  ]
+	};
 			  
-			  GHover(setup); // Call function
-			  </pre>
+	GHover(setup); // Call function
+		</pre>
+			</div>
+			<div class="D-6">
+				<pre>
+	// Setup with array for multiple layout
+
+	var setup = [
+	  {
+	    selector: '.box-hover',
+	    children: [
+	      {
+	        className: '.box',
+	        rotate: { x: -50, y: -25, z: 0 },
+	      },
+	    ]
+	  },
+	  {
+	    selector: '.box-hover-2',
+	    children: [
+	      {
+	        className: '.box-2',
+	        rotate: { x: -15, y: 5, z: 0 },
+	      },
+	    ]
+	  };
+	]
+			  
+	GHover(setup); // Call function
+		</pre>
+			</div>
+		</div>
 		</div>
 		<!-- 	CODE -->
-		
 	</section>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
