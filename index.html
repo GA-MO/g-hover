@@ -27,6 +27,14 @@
 			    </div>
 			  </div>
 			</div>
+			<div class="box-chair">
+				<div class="bdt"></div>
+				<div class="bdb"></div>
+				<div class="title">wiggle</div>
+				<div class="img">
+					<img src="images/chair2.png" alt="" />
+				</div>
+			</div>
 		</div>
 		<br>
 		<br>
@@ -157,6 +165,27 @@
 			        className: '.title, .sub-title',
 			        rotate: { x: -10, y: -10, z: 3 },
 			        translate: { x: 30, y: 30, z: 0 },
+			        transition: 'all 0.2s ease',
+			      }
+			    ]
+			  },
+			  {
+			    selector: '.box-chair',
+			    children: [
+			      {
+			        className: '.bdt, .bdb',
+			        translate: { x: 20, y: 20, z: 0 },
+			        transition: 'all 0.2s ease',
+			      },
+			      {
+			        className: '.title',
+			        rotate: { x: -10, y: -10, z: 3 },
+			        translate: { x: 30, y: 30, z: 0 },
+			        transition: 'all 0.2s ease',
+			      },
+						{
+			        className: '.img',
+			        translate: { x: -10, y: 10, z: 0 },
 			        transition: 'all 0.2s ease',
 			      }
 			    ]
