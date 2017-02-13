@@ -1,7 +1,3 @@
-# G Hover
-Tools for making hover effect
-[Live demo](https://ga-mo.github.io/g-hover/demo/)
-
 # GHover
 ghover.js is a lightweight tools for making hover effect 3D
 [Live demo](https://ga-mo.github.io/g-hover/demo/)
