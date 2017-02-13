@@ -23,24 +23,37 @@ function GHover(selector) {
 }
 
 /**
+ * Get prefix properties
+ * @param  {Object} prefix
+ */
+function getPrefix(properties) {
+  for (var i = 0; i < properties.length; i++) {
+    if (typeof document.body.style[properties[i]] != "undefined") {
+      return properties[i];
+    }
+  }
+  return null;
+}
+
+const transformPrefix = ["transform", "msTransform", "webkitTransform", "mozTransform", "oTransform"];
+const transitionPrefix = ["transition", "msTransition", "webkitTransition", "mozTransition", "oTransition"];
+const transformProperty = getPrefix(transformPrefix);
+const transitionProperty = getPrefix(transitionPrefix);
+
+/**
  * Start hover fucntion
  * @param  {Object} selector
  */
 function startHover(selector) {
   const transform3DBase = { x: 0, y: 0, z: 0 };
   const transitionBase = 'all 0.2s ease';
-  const Selector = $(selector.selector);
+  const Selector = document.querySelector(selector.selector);
   
-  Selector.css({
-    'perspective': '1000px',
-    '-webkit-transform': 'rotateZ(0deg) translateZ(0)',
-    '-moz-transform': 'rotateZ(0deg) translateZ(0)',
-    '-ms-transform': 'rotateZ(0deg) translateZ(0)',
-    '-o-transform': 'rotateZ(0deg) translateZ(0)',
-    'transform': 'rotateZ(0deg) translateZ(0)',
-  });
-  Selector.mouseleave((e) => reset(e.currentTarget, selector));
-  Selector.mousemove((e) => {
+  Selector.style.perspective = "1000px";
+  Selector.style[transformProperty] = "rotateZ(0deg) translateZ(0)";
+
+  Selector.addEventListener('mouseleave', (e) => reset(e.currentTarget, selector));
+  Selector.addEventListener('mousemove', (e) => {
     
     const _this = e.currentTarget;
     const _children = selector.children;
@@ -57,23 +70,26 @@ function startHover(selector) {
       
       const transforms = {
         translate : {
-          x: (t.x[1]-t.x[0])/$(_this).width()*_mousepos.x + t.x[0],
-          y: (t.y[1]-t.y[0])/$(_this).height()*_mousepos.y + t.y[0],
-          z: (t.z[1]-t.z[0])/$(_this).height()*_mousepos.y + t.z[0],
+          x: (t.x[1]-t.x[0])/_this.offsetWidth*_mousepos.x + t.x[0],
+          y: (t.y[1]-t.y[0])/_this.offsetHeight*_mousepos.y + t.y[0],
+          z: (t.z[1]-t.z[0])/_this.offsetHeight*_mousepos.y + t.z[0],
         },
         rotate : {
-          x: (r.x[1]-r.x[0])/$(_this).height()*_mousepos.y + r.x[0],
-          y: (r.y[1]-r.y[0])/$(_this).width()*_mousepos.x + r.y[0],
-          z: (r.z[1]-r.z[0])/$(_this).width()*_mousepos.x + r.z[0],
+          x: (r.x[1]-r.x[0])/_this.offsetHeight*_mousepos.y + r.x[0],
+          y: (r.y[1]-r.y[0])/_this.offsetWidth*_mousepos.x + r.y[0],
+          z: (r.z[1]-r.z[0])/_this.offsetWidth*_mousepos.x + r.z[0],
         }
       };
-      const name = $(_this).find(_children[i].className);
+
+      const name = _this.querySelectorAll(_children[i].className);
       const transit = (_children[i].transition) ? _children[i].transition : transitionBase;
       const matrix = gerMatrix(transforms);
+
       transform(matrix, name);
       transition(transit, name);
     }
-  })
+  });
+
   // Generate real mouse position in selector
   const calculatePosition = (obj) => {
     let result = {};
@@ -94,9 +110,10 @@ function startHover(selector) {
       rotate: transform3DBase
     }
     for (let i=0; i<selector.children.length; i++) {
-      const name = $(obj).find(selector.children[i].className);
+      const name = obj.querySelectorAll(selector.children[i].className);
       const transit = (selector.children[i].transition) ? selector.children[i].transition : transitionBase;
       const matrix = gerMatrix(transforms);
+
       transform(matrix, name);
       transition(transit, name);
     }
@@ -144,23 +161,15 @@ function startHover(selector) {
 
   // Transform
   const transform = (matrix, target) => {
-    $(target).css({
-      '-webkit-transform': `matrix3d(${matrix})`,
-      '-moz-transform': `matrix3d(${matrix})`,
-      '-ms-transform': `matrix3d(${matrix})`,
-      '-o-transform': `matrix3d(${matrix})`,
-      'transform': `matrix3d(${matrix})`,
+    Array.prototype.forEach.call(target, (el, i) => {
+      el.style[transformProperty] = `matrix3d(${matrix})`;
     });
   }
 
   // Transition
   const transition = (transition, target) => {
-    $(target).css({
-      '-webkit-transition': `${transition}`,
-      '-moz-transition': `${transition}`,
-      '-ms-transition': `${transition}`,
-      '-o-transition': `${transition}`,
-      'transition': `${transition}`,
+    Array.prototype.forEach.call(target, (el, i) => {
+      el.style[transitionProperty] = transition;
     });
   }
 }

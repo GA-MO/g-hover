@@ -41,14 +41,11 @@
 		<br>
 		<br>
 		<div class="title">Installation</div>
-		<p>JavaScript plugin require <span class="text-label">jQuery</span> to be included.</p>
+		<p>Get started with <span class="text-label">GHover.js</span> in your projects. You can either manually install or use NPM.</p>
 		<br>
 		<!-- 	CODE -->
 		<div class="container">
-		<pre>
-		    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		    <script src="scripts/ghover.js"></script>
-			  </pre>
+		<pre class="text-center">$ npm install ghover --save</pre>
 		</div>
 		<!-- 	CODE -->
 		<br>
@@ -142,68 +139,57 @@
 		<!-- 	CODE -->
 	</section>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="scripts/ghover.js"></script>
 	<script>
-		$(document).ready(function(){
-			// Setup
-			const dataHover = [
-			  {
-			    selector: '.box-hover',
-			    children: [
-			      {
-			        className: '.box',
-			        rotate: { x: -5, y: -5, z: 0 },
-			        transition: 'all 0.2s ease',
-			      },
-			      {
-			        className: '.border',
-			        translate: { x: 20, y: 20, z: 0 },
-			        transition: 'all 0.2s ease',
-			      },
-			      {
-			        className: '.title, .sub-title',
-			        rotate: { x: -10, y: -10, z: 3 },
-			        translate: { x: 30, y: 30, z: 0 },
-			        transition: 'all 0.2s ease',
-			      }
-			    ]
-			  },
-			  {
-			    selector: '.box-chair',
-			    children: [
-			      {
-			        className: '.bdt, .bdb',
-			        translate: { x: 20, y: 20, z: 0 },
-			        transition: 'all 0.2s ease',
-			      },
-			      {
-			        className: '.title',
-			        rotate: { x: -10, y: -10, z: 3 },
-			        translate: { x: 30, y: 30, z: 0 },
-			        transition: 'all 0.2s ease',
-			      },
-						{
-			        className: '.img',
-			        translate: { x: -10, y: 10, z: 0 },
-			        transition: 'all 0.2s ease',
-			      }
-			    ]
-			  },
-			  // More selector
-			];
+		// Setup
+		const dataHover = [
+		  {
+		    selector: '.box-hover',
+		    children: [
+		      {
+		        className: '.box',
+		        rotate: { x: -5, y: -5, z: 0 },
+		        transition: 'all 0.2s ease',
+		      },
+		      {
+		        className: '.border',
+		        translate: { x: 20, y: 20, z: 0 },
+		        transition: 'all 0.2s ease',
+		      },
+		      {
+		        className: '.title, .sub-title',
+		        rotate: { x: -10, y: -10, z: 3 },
+		        translate: { x: 30, y: 30, z: 0 },
+		        transition: 'all 0.2s ease',
+		      }
+		    ]
+		  },
+		  {
+		    selector: '.box-chair',
+		    children: [
+		      {
+		        className: '.bdt, .bdb',
+		        translate: { x: 20, y: 20, z: 0 },
+		        transition: 'all 0.2s ease',
+		      },
+		      {
+		        className: '.title',
+		        rotate: { x: -10, y: -10, z: 3 },
+		        translate: { x: 30, y: 30, z: 0 },
+		        transition: 'all 0.2s ease',
+		      },
+					{
+		        className: '.img',
+		        translate: { x: -10, y: 10, z: 0 },
+		        transition: 'all 0.2s ease',
+		      }
+		    ]
+		  },
+		  // More selector
+		];
 
-			// Use
-			for (let i=0; i<dataHover.length; i++) {
-			  GHover(dataHover[i])
-			}
-		})
-
-		// Code highlight
-		$('pre').each(function(){
-			var currentHTML = $(this).html().replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-			$(this).html(currentHTML)
-		})
+		// Use
+		GHover(dataHover);
 	</script>
 </body>
 </html>
