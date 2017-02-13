@@ -4,7 +4,7 @@
   "description": "Grid system with flexbox",
   "main": "demo/ghover.js",
   "repository": {
-    "url": "https://github.com/GA-MO/g-hover",
+    "url": "https://github.com/GA-MO/g-hover/",
     "type": "git"
   },
   "author": "Thawatchai Kuansombat (thawatchai.deartk@gmail.com)",
@@ -13,8 +13,8 @@
     "g-hover",
     "hover"
   ],
-  "homepage": "https://ga-mo.github.io/g-hover/demo",
-  "bugs": "https://github.com/GA-MO/g-hover/issues",
+  "homepage": "https://ga-mo.github.io/g-hover/demo/",
+  "bugs": "https://github.com/GA-MO/g-hover/issues/",
   "scripts": {
     "dev": "gulp",
     "build": "gulp build"
