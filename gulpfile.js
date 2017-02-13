@@ -105,7 +105,8 @@ gulp.task('scripts-build', () => {
     }))
     .pipe(concat(scriptOutputName))
     .pipe(uglify()) // compress
-    .pipe(gulp.dest(''+output+'/scripts'));
+    .pipe(gulp.dest(''+output+'/scripts'))
+    .pipe(gulp.dest('lib'));
 });
 
 /**
@@ -197,6 +198,7 @@ gulp.task('html-build', () => {
 
 gulp.task('clean', () => {
   return shell.task([
+    'mkdir lib',
     'rm -rf '+output+''
   ]);
 });
@@ -207,6 +209,7 @@ gulp.task('clean', () => {
 
 gulp.task('createFolder', () => {
   return shell.task([
+      'mkdir lib',
       'mkdir '+output+'',
       'mkdir '+output+'/fonts',
       'mkdir '+output+'/images',

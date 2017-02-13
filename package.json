@@ -1,8 +1,8 @@
 {
-  "name": "g-hover",
+  "name": "ghover",
   "version": "1.0.0",
   "description": "Grid system with flexbox",
-  "main": "demo/ghover.js",
+  "main": "lib/ghover.js",
   "repository": {
     "url": "https://github.com/GA-MO/g-hover/",
     "type": "git"
@@ -19,6 +19,9 @@
     "dev": "gulp",
     "build": "gulp build"
   },
+  "files": [
+    "lib/ghover.js"
+  ],
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.3.15",
