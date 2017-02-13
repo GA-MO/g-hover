@@ -1,0 +1,249 @@
+/*
+╔══════════════════════╗
+╫	┬─── ┬──┬ ┬─┬─┬ ┬──┬ ╫
+╫	│ ─┬ ├──┤	│ ┴ │ │  │ ╫
+╫	┴──┴ ┴  ┴ ┴   ┴ ┴──┴ ╫
+╚══════════════════════╝
+
+Version: 1.0.0
+
+GRID SYSTEM WITH FLEXBOX
+
+Responsive Grid layout with SCSS and Display flex available to customize syntax and breakpoints.
+
+A Project By GAMO
+*/
+
+/*---------------------
+- GRID SETTINGS
+----------------------*/
+
+$responsive: true; 					// Toggle responsive mode
+$container-width: 980px; 	  // Max width for container
+$grid-columns: 12; 					// columns of grids
+$grid-gutter:10px; 					// Space between columns of grids
+$width-breakpoints: (
+  D: null,									// Desktop
+  L: 1200px, 								// Laptop
+  T: 992px,  								// Tablet
+  M: 768px,  								// Mobile
+  SM: 568px  								// Small Mobile
+  // More: xxx
+);
+
+/*--------------------
+- MIXIN
+---------------------*/
+@mixin BREAKPOINT($breakpoint) {
+  $width: map-get($width-breakpoints, $breakpoint);
+  @if $width != null {
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Generage width for container with settings
+@mixin CONTAINER-WIDTH($container-width, $responsive) {
+	@if $responsive == true { width: 100%; }
+  @else { width: $container-width; }
+}
+
+// Generage clasename of grids
+@mixin GRID-LAYOUT($grid-name, $grid-columns) {
+  @for $i from 1 through $grid-columns {
+		$c-width: percentage($i/$grid-columns);
+		.#{$grid-name}-#{$i}{
+			flex: 0 0 $c-width;
+			max-width: $c-width;
+			@content;
+		}
+  }
+}
+
+// Generage base style of grids
+@mixin GRID-COLUMN-STYLE($grid-name, $breakpoint, $grid-columns) {
+	.#{$grid-name}{
+		flex-grow: 1;
+		flex-basis: 0;
+		max-width: 100%;
+		@content;
+		@if $breakpoint != null {
+			@include BREAKPOINT($grid-name) {
+				flex-grow: 1;
+				flex-basis: 100%;
+				max-width: 100%;
+			}
+		}
+	}
+  @for $i from 1 through $grid-columns {
+		.#{$grid-name}-#{$i}{
+			@content;
+		}
+  }
+}
+
+@mixin GRID-ORDER($grid-name, $grid-columns) {
+	@for $i from 0 through $grid-columns {
+		.#{$grid-name}-order-#{$i}{
+			order: $i
+		}
+  }
+}
+
+@mixin GRID-GENERAGETOR($grid-name, $grid-columns) {
+	.hidden-#{$grid-name}{display: none;}
+	@include GRID-LAYOUT($grid-name, $grid-columns);
+	@include GRID-ORDER($grid-name, $grid-columns);
+}
+
+/*--------------------
+- GRID STYLE
+---------------------*/
+
+%col-style{
+  min-height: 1px;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+}
+%container-style{
+	margin-right: auto;
+  margin-left: auto;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+}
+
+/*--------------------
+- GRID CONTAINER
+---------------------*/
+
+.container {
+  @include CONTAINER-WIDTH($container-width, $responsive);
+  max-width: $container-width;
+  @extend %container-style;
+}
+.container-fluid {
+  @extend %container-style;
+}
+
+/*--------------------
+- GRID ROW
+---------------------*/
+
+.row {
+  display: flex;
+	flex-wrap: wrap;
+	margin-left: -$grid-gutter;
+	margin-right: -$grid-gutter;
+}
+.row-fluid {
+  display: flex;
+	flex-wrap: wrap;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+// .row:before,
+// .row:after,
+// .row-fluid:before,
+// .row-fluid:after{
+// 	content: '';
+// 	display: table;
+// 	clear: both;
+// }
+
+/*--------------------
+- GRID VERTICAL ALIGN
+---------------------*/
+
+.row, .row-fluid{
+	&.columns-top{
+		align-items: flex-start;
+	}
+	&.columns-bottom{
+		align-items: flex-end;
+	}
+	&.columns-middle{
+		align-items: center;
+	}
+	&.columns-stretch{
+		align-items: stretch;
+	}
+}
+
+/*--------------------
+- GRID HORIZONTAL ALIGN
+---------------------*/
+.row, .row-fluid{
+	&.columns-left{
+		justify-content: flex-start;
+	}
+	&.columns-right{
+		justify-content: flex-end;
+	}
+	&.columns-center{
+		justify-content: center;
+	}
+	&.columns-between{
+		justify-content: space-between;
+	}
+	&.columns-around{
+		justify-content: space-around;
+	}
+}
+
+
+
+/*--------------------
+- COLUMN VERTICAL ALIGN
+---------------------*/
+
+.vertical-top{
+	align-self: flex-start;
+}
+.vertical-middle{
+	align-self: center;
+}
+.vertical-bottom{
+	align-self: flex-end;
+}
+
+/*--------------------
+- GRID REMOVE GAB
+---------------------*/
+
+.row, .row-fluid{
+	&.no-gutter{
+		margin-left: 0;
+		margin-right: 0;
+	}
+	&.no-gutter>div{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/*--------------------
+- CREATE A GRID
+---------------------*/
+
+@each $grid-name, $breakpoint in $width-breakpoints {
+	@include GRID-COLUMN-STYLE($grid-name, $breakpoint, $grid-columns){
+		@extend %col-style;
+	};
+	@if $breakpoint == null {
+		@include GRID-GENERAGETOR($grid-name, $grid-columns);
+	} @else {
+		@include BREAKPOINT($grid-name) {
+			@include GRID-GENERAGETOR($grid-name, $grid-columns);
+		}
+	}
+}
+
+*, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
