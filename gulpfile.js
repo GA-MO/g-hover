@@ -1,6 +1,6 @@
 'use strict';
 
-const output = 'g-hover';
+const output = 'demo';
 const proxy = false; // Input your server path 'localhost/your-project/app'
 const scriptOutputName = 'ghover.js';
 const styleOutputName = 'demo-layout.css';
