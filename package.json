@@ -1,6 +1,6 @@
 {
   "name": "ghover",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Grid system with flexbox",
   "main": "lib/ghover.js",
   "repository": {
