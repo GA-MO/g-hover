@@ -9,6 +9,12 @@ Get started with ghover.js in your projects. You can either manually install or 
 ### Install manually
 Download the compiled and minified [g-hover JS file](https://github.com/GA-MO/g-hover/tree/master/lib).
 
+### Install with CDN
+
+```
+https://cdn.rawgit.com/GA-MO/g-hover/238cab33/lib/ghover.js
+```
+
 ### Install with NPM
 
 ```
