@@ -2,6 +2,8 @@
 ghover.js is a lightweight tools for making hover effect 3D
 [Live demo](https://ga-mo.github.io/g-hover/demo/)
 
+![Demo](https://s27.postimg.org/ubmtxh0fn/ghover.jpg)
+
 ### Getting started
 
 Get started with ghover.js in your projects. You can either manually install or use NPM.
