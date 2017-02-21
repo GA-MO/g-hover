@@ -26,7 +26,7 @@ function GHover(selector) {
  * Get prefix properties
  * @param  {Object} prefix
  */
-function getPrefix(properties) {
+function getCSSPrefix(properties) {
   for (var i = 0; i < properties.length; i++) {
     if (typeof document.body.style[properties[i]] != "undefined") {
       return properties[i];
@@ -37,8 +37,8 @@ function getPrefix(properties) {
 
 const transformPrefix = ["transform", "msTransform", "webkitTransform", "mozTransform", "oTransform"];
 const transitionPrefix = ["transition", "msTransition", "webkitTransition", "mozTransition", "oTransition"];
-const transformProperty = getPrefix(transformPrefix);
-const transitionProperty = getPrefix(transitionPrefix);
+const transformProperty = getCSSPrefix(transformPrefix);
+const transitionProperty = getCSSPrefix(transitionPrefix);
 
 /**
  * Start hover fucntion
