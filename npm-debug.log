@@ -1,0 +1,51 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'semantic-release' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.5
+4 verbose run-script [ 'presemantic-release',
+4 verbose run-script   'semantic-release',
+4 verbose run-script   'postsemantic-release' ]
+5 info lifecycle ghover@0.0.0-development~presemantic-release: ghover@0.0.0-development
+6 silly lifecycle ghover@0.0.0-development~presemantic-release: no script for presemantic-release, continuing
+7 info lifecycle ghover@0.0.0-development~semantic-release: ghover@0.0.0-development
+8 verbose lifecycle ghover@0.0.0-development~semantic-release: unsafe-perm in lifecycle true
+9 verbose lifecycle ghover@0.0.0-development~semantic-release: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Fuckdev\Documents\g-hover\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\Fuckdev\Downloads\php-5.6.25-nts-Win32-VC11-x64;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Yarn\bin;C:\apache-maven-3.3.9\bin;%{JAVA_HOME}\bin;%{JAVA_HOME}\lib\dt.jar;%{JAVA_HOME}\lib\tools.jar;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Fuckdev\AppData\Local\atom\bin;C:\Users\Fuckdev\AppData\Local\Microsoft\WindowsApps;C:\Users\Fuckdev\AppData\Roaming\Composer\vendor\bin;C:\Users\Fuckdev\AppData\Local\Yarn\.bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Program Files\Heroku\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Users\Fuckdev\AppData\Roaming\npm
+10 verbose lifecycle ghover@0.0.0-development~semantic-release: CWD: C:\Users\Fuckdev\Documents\g-hover
+11 silly lifecycle ghover@0.0.0-development~semantic-release: Args: [ '/d /s /c',
+11 silly lifecycle   'semantic-release pre && npm publish && semantic-release post' ]
+12 silly lifecycle ghover@0.0.0-development~semantic-release: Returned: code: 1  signal: null
+13 info lifecycle ghover@0.0.0-development~semantic-release: Failed to exec semantic-release script
+14 verbose stack Error: ghover@0.0.0-development semantic-release: `semantic-release pre && npm publish && semantic-release post`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid ghover@0.0.0-development
+16 verbose cwd C:\Users\Fuckdev\Documents\g-hover
+17 error Windows_NT 10.0.14393
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "semantic-release"
+19 error node v6.9.5
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error ghover@0.0.0-development semantic-release: `semantic-release pre && npm publish && semantic-release post`
+22 error Exit status 1
+23 error Failed at the ghover@0.0.0-development semantic-release script 'semantic-release pre && npm publish && semantic-release post'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the ghover package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     semantic-release pre && npm publish && semantic-release post
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs ghover
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls ghover
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
