@@ -8,7 +8,7 @@
 
 #### Install with NPM:
 ```
-$ npm install ghover --save
+$ npm i ghover --save
 ```
 
 #### Or use CDN:
