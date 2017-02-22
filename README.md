@@ -2,7 +2,7 @@
 #####GHover is a lightweight javascript tool to make awesome looking 3D hover effects on your website
 [Live demo](https://ga-mo.github.io/g-hover/demo/)
 
-![Screencap](http://i.makeagif.com/media/2-22-2017/M-gcQ4.gif)
+![Demo](https://s27.postimg.org/ubmtxh0fn/ghover.jpg)
 
 ## Getting started
 
