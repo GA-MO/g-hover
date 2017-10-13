@@ -1,6 +1,6 @@
 {
   "name": "ghover",
-  "version": "0.0.0-development",
+  "version": "1.2.3",
   "description": "GHover is a lightweight javascript tool to make awesome 3D hover effects on your website",
   "main": "lib/ghover.js",
   "repository": {
@@ -10,8 +10,12 @@
   "author": "Thawatchai Kuansombat (thawatchai.deartk@gmail.com)",
   "license": "MIT",
   "keywords": [
-    "g-hover",
-    "hover"
+    "ghover",
+    "hover",
+    "tilt",
+    "tilt effect",
+    "tilt hover effect",
+    "tilt hover 3d"
   ],
   "homepage": "https://ga-mo.github.io/g-hover/demo/",
   "bugs": "https://github.com/GA-MO/g-hover/issues/",
