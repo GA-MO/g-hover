@@ -111,7 +111,7 @@ function initGHover(selector) {
 
       const name = DOM.querySelectorAll(children[i].className)
       const transit = children[i].transition ? children[i].transition : transitionDefault
-      const matrix = gerMatrix(transforms)
+      const matrix = getMatrix(transforms)
 
       transform(matrix, name)
       transition(transit, name)
@@ -149,7 +149,7 @@ function initGHover(selector) {
     for (let i = 0; i < children.length; i++) {
       const name = obj.querySelectorAll(children[i].className)
       const transit = children[i].transition ? children[i].transition : transitionDefault
-      const matrix = gerMatrix(transforms)
+      const matrix = getMatrix(transforms)
 
       transform(matrix, name)
       transition(transit, name)
@@ -157,7 +157,7 @@ function initGHover(selector) {
   }
 
   // Generate Matrix transform
-  function gerMatrix(transform) {
+  function getMatrix(transform) {
     const { rotate, translate } = transform
     var ScaleX = 1,
       ScaleY = 1,
