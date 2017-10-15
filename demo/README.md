@@ -13,7 +13,7 @@ $ npm install ghover --save
 
 #### Or use CDN:
 ```
-https://cdn.rawgit.com/GA-MO/g-hover/238cab33/lib/ghover.js
+https://cdn.rawgit.com/GA-MO/g-hover/38cd05a2/lib/ghover.js
 ```
 
 You can [download the source](https://github.com/GA-MO/g-hover/tree/master/lib) as well. :)
